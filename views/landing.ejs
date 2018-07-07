@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CampCamp</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="stylesheets/landing.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+</head>
+<body>
+<!--
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+   <!-- <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">CampCamp</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+  <!--  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+      	<li class="active"><a href="">Home</a></li>
+      	<li class=""><a href="">About</a></li>
+      	<li class=""><a href="">Contact</a></li>
+
+      </ul>  
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/register">Sign Up <i class="fas fa-user-plus"></i></a></li>
+        <li><a href="/login">Login <i class="fas fa-user"></i></a></li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+ <!-- </div><!-- /.container -->
+<!--</nav> -->
+
+<div class="container">
+  <% if(error && error.length > 0){ %>
+      <div class="alert alert-danger" role="alert">
+        <%= error %>
+      </div>
+  <% } %>
+  <% if(success && success.length > 0){ %>
+      <div class="alert alert-sucess" role="alert">
+        <%= success %>
+      </div>
+  <% } %>
+</div>
+
+
+
+<div class="container">
+	<div class="row">
+		<div id="content">
+			<div class="col-lg-12">
+				<h1>CampCamp</h1>
+				<h3>The Only Site For Adventure</h3>
+			    <a class="btn btn-success btn-lg" href="/campgrounds"><i class="far fa-compass"></i>View All Campgrounds</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ul class="slideshow">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+
+<% include partials/footer %>

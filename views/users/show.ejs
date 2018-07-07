@@ -1,0 +1,51 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <div class="col-md-4">
+        <h1><%= user.firstName %> <%= user.lastName %></h1>
+        <div class="thumbnail">
+            <img src="<%= user.avatar %>" alt="user profile image"></img>
+            <div class="caption"> <%= user.email %></div>
+            <% if(currentUser && currentUser._id.equals(user.id) || currentUser && currentUser.isAdmin){ %>
+                <a class="btn btn-warning"href="/users/<%=user.id%>/edit">Edit</a>
+                <form class="delete-form" action="/users/<%=user.id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            <% } %>
+             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor dapibus augue, id pharetra metus finibus vitae. Cras lobortis
+                orci nec diam mollis, et dictum mi sollicitudin. Sed vel hendrerit urna. Cras sed nulla turpis. Aenean id elit pretium, auctor nulla
+                sit amet, imperdiet lectus. In bibendum tempus velit non feugiat. Aliquam consequat leo non placerat efficitur. Morbi pretium maximus
+                laoreet. Ut augue magna, imperdiet faucibus blandit et, dictum quis diam. 
+                Sed eu eleifend urna, et porttitor velit. Sed efficitur ac mi at pretium. </p>
+                <p>Aliquam nunc nibh, faucibus a lacus eu, efficitur sodales libero. Sed sit amet elit porttitor, ornare magna et, tempor lacus. 
+                Mauris id tortor viverra eros commodo volutpat. Praesent sit amet metus a massa ultricies volutpat. Morbi massa nunc, faucibus et rhoncus 
+                eu, finibus nec augue. Suspendisse suscipit mattis ante. Phasellus tristique pellentesque scelerisque. Integer at mauris rutrum odio 
+                tincidunt dignissim. Nulla facilisi. In quis nibh a lacus ullamcorper convallis id ut velit.</p>
+                <p>Aliquam euismod odio sed purus dapibus varius. Aliquam mi est, rhoncus non ex faucibus, mollis vulputate metus. Curabitur eget lobortis est. In accumsan, risus eget tristique congue, sapien 
+                turpis maximus dolor, tempor dignissim sapien neque dictum est. Nulla aliquet eleifend blandit. Praesent laoreet nibh eu laoreet dapibus.
+                Donec tempor blandit tellus nec elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed purus a mi 
+                consequat pharetra in in urna. Sed semper facilisis tempus. Nulla facilisi. Mauris sed magna id elit tempor aliquam. Nullam lorem ligula, 
+                egestas ultricies pretium eget, efficitur rutrum magna. Maecenas commodo rhoncus dolor, nec fermentum orci cursus non. Aliquam sollicitudin 
+                efficitur rhoncus. Fusce et dapibus enim, sit amet ultricies odio. Quisque massa dolor, congue eu consequat a, pellentesque quis est. Suspendisse 
+                accumsan velit ac ullamcorper tincidunt.</p>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <h3><%= user.username %>'s campgrounds</h3>
+        <div class="row text-center" style="display:flex; flex-wrap:wrap;">
+              <% campgrounds.forEach(function(camp){ %>
+              <div class="col-md-3 col-sm-6">
+                 <div class=thumbnail>
+                    <img src="<%=camp.image%>"></img>
+                    <div class="caption"><%=camp.name%></div>
+                    <p>
+                        <a href="/campgrounds/<%=camp._id %>" class="btn btn-primary">More Info</a>
+                    </p>
+                  </div> 
+               </div>
+              <% }); %>
+        </div>                  
+    </div>
+</div>
+
+<% include ../partials/footer %>
