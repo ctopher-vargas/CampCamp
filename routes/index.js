@@ -46,8 +46,8 @@ router.get("/register", function(req, res){
 router.post("/register", upload.single("avatar_img"), function(req, res){
     console.log("hello")
     var admin = false; 
-    if(req.body.email === "ctopher.vargas@gmail.com"){
-        admin = true; 
+    if(req.body.email.equals("ctopher.vargas@gmail.com")) {
+        admin = true;
     }
     cloudinary.uploader.upload(req.file.path, function(result){
         var newUser = new User({
