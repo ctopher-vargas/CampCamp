@@ -17,8 +17,8 @@ var commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index");
 
 app.locals.moment = require('moment'); 
-//mongoose.connect("mongodb://localhost/camp_camp"); 
-mongoose.connect("mongodb://chris:rosie101@ds231961.mlab.com:31961/campcamp"); 
+mongoose.connect("mongodb://localhost/camp_camp"); 
+//mongoose.connect("mongodb://chris:rosie101@ds231961.mlab.com:31961/campcamp"); 
 app.use(bodyParser.urlencoded({extended: true})); 
 app.set("view engine", "ejs"); 
 app.use(express.static(__dirname + "/public"));
@@ -51,6 +51,6 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/users/", userRoutes); 
 app.use("/campgrounds", campgroundRoutes); 
 
-app.listen(process.env.PORT, process.envIP, function(){
+app.listen(process.env.PORT, process.env.IP, function(){
     console.log("CampCamp server has started..."); 
 }); 
