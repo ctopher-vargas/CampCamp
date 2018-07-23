@@ -19,7 +19,7 @@ var commentRoutes    = require("./routes/comments"),
 app.locals.moment = require('moment'); 
 
 mongoose.connect(process.env.DATABASEURL); 
-//mongoose.connect("mongodb://chris:rosie101@ds231961.mlab.com:31961/campcamp"); 
+
 app.use(bodyParser.urlencoded({extended: true})); 
 app.set("view engine", "ejs"); 
 app.use(express.static(__dirname + "/public"));
