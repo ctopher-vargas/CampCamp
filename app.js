@@ -18,8 +18,7 @@ var commentRoutes    = require("./routes/comments"),
 
 app.locals.moment = require('moment'); 
 
-console.log(process.env.DATABASEURL); 
-mongoose.connect("mongodb://localhost/camp_camp"); 
+mongoose.connect(process.env.DATABASEURL); 
 //mongoose.connect("mongodb://chris:rosie101@ds231961.mlab.com:31961/campcamp"); 
 app.use(bodyParser.urlencoded({extended: true})); 
 app.set("view engine", "ejs"); 
